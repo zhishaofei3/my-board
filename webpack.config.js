@@ -1,6 +1,6 @@
-var path = require('path')
-var webpack = require('webpack')
-var ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
   entry: './src/main.ts',
@@ -18,6 +18,11 @@ module.exports = {
           name: '[name].[ext]?[hash]'
         }
       },
+	    {
+		    test: /\.js$/,
+		    loader: 'babel-loader',
+		    exclude: /node_modules/
+	    },
 	    {
 		    test: /\.ts$/,
 		    loader: 'ts-loader',
